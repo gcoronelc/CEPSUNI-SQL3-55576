@@ -1,4 +1,4 @@
-![SQL SERVER ADMINISTRACION](https://raw.githubusercontent.com/gcoronelc/CEPSUNI-SQL3-55567/main/img/sql-adm.png)
+![SQL SERVER ADMINISTRACION](https://github.com/gcoronelc/CEPSUNI-SQL3-55576/blob/main/img/sql-adm.png)
 
 # DATOS GENERALES
 
