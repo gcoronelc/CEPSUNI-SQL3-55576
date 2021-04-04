@@ -34,3 +34,22 @@ LOG ON
 	FILEGROWTH=1MB
 );
 GO
+
+create table turismo..data1( nombre varchar(100) );
+go
+
+
+ALTER DATABASE TURISMO
+MODIFY FILEGROUP TURISMO_FG1 DEFAULT;
+GO
+
+create table turismo..data2( nombre varchar(100) );
+go
+
+CREATE TABLE turismo..Data3
+(
+	id int PRIMARY KEY,
+	dato varchar(100)
+)
+ON [PRIMARY];
+GO
