@@ -4,7 +4,46 @@ GO
 
 -- De Carlos Anthony Caceres para todos:  09:48 AM
 
-USE master;GOCREATE DATABASE LibroTSQLON PRIMARY ( NAME='LibroTSQL', FILENAME= 'c:\datos\LibroTSQL.mdf', SIZE=10MB, MAXSIZE=10MB, FILEGROWTH=1MB)LOG ON ( NAME='LibroTSQL_log', FILENAME = 'c:\datos\LibroTSQL_log.ldf', SIZE=8MB, MAXSIZE=10MB, FILEGROWTH=1MB);GO
+USE master;
+GO
+
+CREATE DATABASE LibroTSQL
+ON PRIMARY
+ ( NAME='LibroTSQL',
+ FILENAME= 'c:\datos\LibroTSQL.mdf',
+ SIZE=10MB,
+ MAXSIZE=10MB,
+ FILEGROWTH=1MB)
+LOG ON
+ ( NAME='LibroTSQL_log',
+ FILENAME = 'c:\datos\LibroTSQL_log.ldf',
+ SIZE=8MB,
+ MAXSIZE=10MB,
+ FILEGROWTH=1MB);
+GO
 
 
+-- Ronald Muguruza
 
+ALTER DATABASE LibroTSQL ADD FILEGROUP Data;
+GO
+
+ALTER DATABASE LibroTSQL
+ADD FILE
+( NAME= 'data1',
+FILENAME ='C:\datos\data.ndf',
+    SIZE = 50MB,
+    MAXSIZE=100MB
+	)
+TO FILEGROUP Data
+go
+
+ALTER DATABASE LibroTSQL
+ADD FILE
+( NAME= 'data2',
+FILENAME ='C:\datos\data2.ndf',
+    SIZE = 50MB,
+    MAXSIZE=100MB
+	)
+TO FILEGROUP Data
+go
