@@ -3,6 +3,9 @@
 use master 
 go
 
+drop database perudev;
+go
+
 create database perudev; 
 go
 
@@ -13,12 +16,16 @@ go
 select databasepropertyex( 'perudev','Recovery' ) 
 go
 
+use perudev;
+go
 
 -- Paso 2
 
-exec sp_addumpdevice 'disk', 'PDDEVICE', 'D:\Backup\PDDevice.bak' 
+exec sp_dropdevice 'PDDEVICE'
 go
 
+exec sp_addumpdevice 'disk', 'PDDEVICE', 'D:\Backup\PDDevice.bak' 
+go
 
 select * from master.dbo.sysdevices 
 go
@@ -83,6 +90,9 @@ go
 
 -- Backup diferencial del lunes
 
+DBCC SHRINKFILE (perudev_LOG)
+GO
+
 backup database perudev 
 to PDDEVICE 
 with 
@@ -112,6 +122,9 @@ end
 go
 
 -- Backup diferencial del martes
+
+DBCC SHRINKFILE (perudev_LOG)
+GO
 
 backup database perudev 
 to PDDEVICE 

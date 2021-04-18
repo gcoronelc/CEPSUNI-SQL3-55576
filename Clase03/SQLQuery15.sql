@@ -1,6 +1,5 @@
 /*
-Restaurar solo el backup de base de datos del día domingo,
-el defirencial del martes y el log del miercoles
+El backup del log abarca todo, desde el bak full de la bd?
 */
 
 
@@ -19,13 +18,6 @@ FROM PDDEVICE
 WITH File = 1, NORECOVERY;
 go
 
--- Restaurar el diferencial del martes
-
-RESTORE DATABASE perudev 
-FROM PDDEVICE 
-WITH File = 3, NORECOVERY;
-go
-
 -- Restaurar el log del miercoles
 RESTORE LOG perudev 
 FROM PDDEVICE 
@@ -35,6 +27,3 @@ go
 
 select * from perudev..test;
 go
-
-
-
