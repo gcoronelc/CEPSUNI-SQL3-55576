@@ -15,3 +15,11 @@ FROM Northwind.dbo.Customers AS C
 JOIN Northwind.dbo.Orders AS O ON C.CustomerID = O.CustomerID
 JOIN Northwind.dbo.[Order Details] AS D ON O.OrderID = D.OrderID
 JOIN Northwind.dbo.Products AS P ON D.ProductID = P.ProductID;
+
+
+select distinct year(OrderDate) anio
+from Orders order by 1 desc;
+
+
+
+
